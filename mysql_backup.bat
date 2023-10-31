@@ -38,7 +38,7 @@ set TIMESTAMP=%TIMESTAMP:.=%
 set TIMESTAMP=%TIMESTAMP:~0,-2%
 
 :: Realizar copia de seguridad
-echo Realizando copia de seguridad de la base de datos %DBNAME%...
+echo Realizando copia de seguridad de la base de datos %DBNAME%
 "%MYSQL_PATH%\bin\mysqldump.exe" -u%USER% -p%PASSWORD% -h%HOST% --port %PORT% -Q --hex-blob --ignore-table="%DBNAME%.Attach" --ignore-table="%DBNAME%.EventLog" --verbose --complete-insert --allow-keywords --create-options -r"%TARGET_DIR%\%TARGET_FILE%%TIMESTAMP%.sql" %DBNAME%
 
 :: Comprimir automáticamente el archivo de respaldo
